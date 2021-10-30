@@ -1,0 +1,28 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: API doc
+paths:
+  /status:
+    get:
+      description: |
+        Returns status
+      operationId: getStatus
+      responses:
+        '200':
+          description: status response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+
+components:
+  schemas:
+    Status:
+      allOf:
+        - required:
+          - id
+          properties:
+            id:
+              type: string
+              description: string that indicates status
