@@ -23,10 +23,10 @@ start: check-style
 .PHONY: clean
 clean: 
 	docker-compose  down --rmi local -v
-## Run golangci-lint on codebase.
+## Run golangci-lint on codebase. Needs to install golangci-lint -> https://golangci-lint.run/usage/install/#linux-and-windows
 .PHONY: golangci-lint
 golangci-lint:
-	docker run --rm -v $(CUR_DIR):/app -w /app golangci/golangci-lint:latest golangci-lint run
+	golangci-lint run
 
 ## Runs any lints and unit tests defined for the server, if they exist.
 .PHONY: test-back
